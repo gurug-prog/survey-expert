@@ -57,7 +57,7 @@ module.exports = {
 
       {
         title: "Розроблення вимог до функціональности системи",
-        path: "/use cases/",
+        path: "/use-cases/",
       },
 
       {
@@ -66,17 +66,18 @@ module.exports = {
       },
 
       {
-        title: "Реалізація інформаційного та програмного забезпечення",
-        path: "/software/",
+        title: "Технологічний стек???",
+        path: "/tech-stack/",
       },
 
       {
-        title: "Тестування працездатності системи",
-        path: "/test/",
+        title: "Команда та фреймворк роботи???",
+        path: "/team/",
       },
+
       {
         title: "Висновки",
-        path: "/conclusion/",
+        path: "/conclusions/",
       },
     ],
     sidebarDepth: 2,
@@ -105,7 +106,7 @@ module.exports = {
     // editLinkText: 'Ви можете покращити цю сторінку'
   },
   title: "Survey Expert. Система управління експертними опитуваннями",
-  description: 'Курсова робота з дисципліни "Бази даних"',
+  description: 'Документація',
   configureWebpack: {
     resolve: {
       alias: {
