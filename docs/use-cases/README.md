@@ -100,8 +100,7 @@ O .d.> GET_POLL_RESULTS : extends
 
 <br><br>
 
-## Сценарії використання для користувача
-<br><br>
+## Сценарії взаємодії для користувача
 
 - ID: v1.NOT_LOGGED.001
 
@@ -115,33 +114,38 @@ O .d.> GET_POLL_RESULTS : extends
              <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
              <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
              <font color=000 size=16>Користувач не зареєстрований у системі.
-             <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Новий обліковий запис
+             <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система створює новий обліковий запис
              <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
              <font color=000 size=16>v1.NOT_LOGGED.EX.001
          end header
 
          |Користувач|
              start
-             : Натискає кнопку "Реєстрація" ;
-             : Передає реєстраційні данні:
-             Логін, пароль та пошта;
+             :Натискає кнопку "Реєстрація" ;
+             :Вводить реєстраційні дані;
 
          |Система|
-             : Перевіряє переданні реєстраційні данні;
+             :Обробляє передані
+             реєстраційні дані;
 
-             note right #ff0000
-             <b>Можлива</b>
+             note right #ffaaaa
+             <b>Можливі</b>
              <b>v1.NOT_LOGGED.EX.001</b>
              end note
 
-             : створює обліковий запис за переданими
-             реєстраційними даними;
+             :Створює обліковий запис
+             за валідованими даними;
 
-             : надає користувачу інформацію про
-             створення облікового запису;
+             :Повідомляє користувача
+             про створення облікового
+             запису;
 
          |Користувач|
-             stop;
+
+            :Підтверджує отримання
+            повідомлення;
+
+            stop;
 
   @enduml
 
@@ -168,14 +172,14 @@ O .d.> GET_POLL_RESULTS : extends
 
        |Користувач|
            start
-           : Натискає кнопку "Вхід" ;
-           : Передає авторизаційні дані:
-           Логін та пароль;
+           :Натискає кнопку "Вхід";
+           :Передає авторизаційні дані:
+           логін та пароль;
 
        |Система|
-           : ідентифікує користувача;
+           :ідентифікує користувача;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.NOT_LOGGED.EX.002</b>
            end note
@@ -190,7 +194,7 @@ O .d.> GET_POLL_RESULTS : extends
 
     </center>
 
-## Сценарії для авторизованого користувача
+## Сценарії взаємодії для авторизованого користувача
 
 - ID: v1.USER.001
 
@@ -200,12 +204,12 @@ O .d.> GET_POLL_RESULTS : extends
 
       left header
            <font color=000 size=16><b>ID:</b> v1.USER.001
-           <font color=000 size=16><b>НАЗВА:</b> 	Отримати дані для проходження опитування
+           <font color=000 size=16><b>НАЗВА:</b> Отримати дані для проходження опитування
            <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
            <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
-           <font color=000 size=16>Користувач авторизований у системі.
-           <font color=000 size=16>Користувач має доступ до запитаного опитування.
-           <font color=000 size=16><b>РЕЗУЛЬТАТ:</b>Дані для проходження опитування
+           <font color=000 size=16>Користувач авторизований у системі
+           <font color=000 size=16>Користувач має доступ до запитаного опитування
+           <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Дані для проходження опитування
            <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
            <font color=000 size=16>v1.NOT_LOGGED.EX.004
            <font color=000 size=16>v1.COMMON.EX.001
@@ -219,7 +223,7 @@ O .d.> GET_POLL_RESULTS : extends
        |Система|
            : ідентифікує користувача;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.NOT_LOGGED.EX.004</b>
            end note
@@ -227,14 +231,14 @@ O .d.> GET_POLL_RESULTS : extends
            :знаходить назву, опис, питання та ролі, для 
            яких доступно проходження опитування;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.001</b>
            end note
 
            :авторизує користувача для отримання даних;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.002</b>
            end note
@@ -279,7 +283,7 @@ O .d.> GET_POLL_RESULTS : extends
          |Система|
              : ідентифікує користувача;
 
-             note right #ff0000
+             note right #ffaaaa
              <b>Можлива</b>
              <b>v1.NOT_LOGGED.EX.004</b>
              end note
@@ -287,7 +291,7 @@ O .d.> GET_POLL_RESULTS : extends
              :перевіряє правильність наданих
              користувачем відповідей на питання;
 
-             note right #ff0000
+             note right #ffaaaa
              <b>Можлива</b>
              <b>v1.COMMON.EX.003</b>
              end note
@@ -333,14 +337,14 @@ O .d.> GET_POLL_RESULTS : extends
            базі даних користувачів
            та ідентифікує його;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.NOT_LOGGED.EX.004</b>
            end note
 
            : Перевіряє, чи існує задане опитування;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.001</b>
            end note
@@ -349,7 +353,7 @@ O .d.> GET_POLL_RESULTS : extends
            у користувача до заданого
            опитування;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.002</b>
            end note
@@ -357,7 +361,7 @@ O .d.> GET_POLL_RESULTS : extends
            : Перевіряє чи пройшов
            користувач опитування;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.003</b>
            end note
@@ -373,7 +377,7 @@ O .d.> GET_POLL_RESULTS : extends
 
   </center>
 
-## Сценарії для менеджера організацій
+## Сценарії взаємодії для менеджера організацій
 
 - ID: v1.ORGANIZATION.001
 
@@ -402,7 +406,7 @@ O .d.> GET_POLL_RESULTS : extends
            базі даних користувачів
            та ідентифікує його;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.NOT_LOGGED.EX.004</b>
            end note
@@ -419,7 +423,7 @@ O .d.> GET_POLL_RESULTS : extends
            : Перевіряє правильність
            надісланих даних;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.003</b>
            end note
@@ -463,7 +467,7 @@ O .d.> GET_POLL_RESULTS : extends
 
        |Система|
            : Ідентифікує користувача;
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.NOT_LOGGED.EX.004</b>
            end note
@@ -471,7 +475,7 @@ O .d.> GET_POLL_RESULTS : extends
            : Перевіряє, чи
            існує організація;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.001</b>
            end note
@@ -483,7 +487,7 @@ O .d.> GET_POLL_RESULTS : extends
            для отримання даних
            про організацію;
 
-           note right #ff0000
+           note right #ffaaaa
            <b>Можлива</b>
            <b>v1.COMMON.EX.002</b>
            end note
@@ -528,7 +532,7 @@ O .d.> GET_POLL_RESULTS : extends
       |Система|
           : Ідентифікує користувача;
 
-          note right #ff0000
+          note right #ffaaaa
           <b>Можлива</b>
           <b>v1.NOT_LOGGED.EX.004</b>
           end note
@@ -536,7 +540,7 @@ O .d.> GET_POLL_RESULTS : extends
           : Перевіряє, чи
           існує організація;
 
-          note right #ff0000
+          note right #ffaaaa
           <b>Можлива</b>
           <b>v1.COMMON.EX.001</b>
           end note
@@ -549,7 +553,7 @@ O .d.> GET_POLL_RESULTS : extends
           ролей та їх прав в організації у 
           відповідності до його прав;
  
-          note right #ff0000
+          note right #ffaaaa
           <b>Можлива</b>
           <b>v1.COMMON.EX.002</b>
           end note
@@ -567,7 +571,7 @@ O .d.> GET_POLL_RESULTS : extends
           : Перевіряє правильність
           надісланих даних;
 
-          note right #ff0000
+          note right #ffaaaa
           <b>Можлива</b>
           <b>v1.COMMON.EX.003</b>
           end note
@@ -872,13 +876,13 @@ left header
          <font color=000 size=16><b>НАЗВА:</b> Повідомити про відсутність запитаних даних
          <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система 
          <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
-         <font color=000 size=16>Користувач авторизований у системі.
-         <font color=000 size=16>Користувач запитав дані, що відсутні у системі.
-         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про відсутність запитаних даних.
+         <font color=000 size=16>Користувач авторизований у системі
+         <font color=000 size=16>Запитані дані відсутні у системі
+         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про відсутність запитаних даних
      end header
      |Користувач|
          start
-         : Надсилає запит на отримання
+         :Надсилає запит на отримання
          неіснуючих даних;
  
      |Система|
@@ -886,10 +890,8 @@ left header
          про відсутність запитаних даних;
 
      |Користувач|
-         : Отримує повідомлення 
-         про відсутність запитаних даних;
-
-          :Завершує взаємодію;
+         :Підтверджує отримання
+         повідомлення;
 
           stop;
 
@@ -1033,8 +1035,8 @@ left header
 
      |Користувач|
          start
-         :Виконує дію, що потребує авторизації, 
-         будучи неідентифікованим;
+         :Виконує дії, потрібні
+         для авторизації;
 
      |Система|
          :Надає користувачу повідомлення про відхилення
@@ -1117,17 +1119,19 @@ left header
 
       |Користувач|
           start
-          :Запитує доступ;
+          :Запитує доступ до
+          ресурсу системи;
 
       |Система|
+          :Визначає, що користувач
+          не має доступу до ресурсу;
+
           :Повідомляє користувача
           про відхилення доступу;
 
       |Користувач|
           :Підтверджує отримання
           повідомлення;
-
-          :Завершує взаємодію;
 
           stop;
 
