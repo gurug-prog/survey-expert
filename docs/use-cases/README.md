@@ -117,6 +117,7 @@ O .d.> GET_POLL_RESULTS : extends
              <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система створює новий обліковий запис
              <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
              <font color=000 size=16>v1.NOT_LOGGED.EX.001
+             <font color=000 size=16>v1.NOT_LOGGED.EX.002
          end header
 
          |Користувач|
@@ -129,8 +130,9 @@ O .d.> GET_POLL_RESULTS : extends
              реєстраційні дані;
 
              note right #ffaaaa
-             <b>Можливі</b>
+             <b>Можливі:</b>
              <b>v1.NOT_LOGGED.EX.001</b>
+             <b>v1.NOT_LOGGED.EX.002</b>
              end note
 
              :Створює обліковий запис
@@ -162,12 +164,12 @@ O .d.> GET_POLL_RESULTS : extends
            <font color=000 size=16><b>НАЗВА:</b> Авторизуватись у системі
            <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
            <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
-           <font color=000 size=16>Користувач зареєстрований у системі.
-           <font color=000 size=16>Користувач не авторизований у системі.
+           <font color=000 size=16>Користувач зареєстрований у системі
+           <font color=000 size=16>Користувач не авторизований у системі
            <font color=000 size=16><b>РЕЗУЛЬТАТ:</b>Сеанс роботи
            <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-           <font color=000 size=16>v1.NOT_LOGGED.EX.002
            <font color=000 size=16>v1.NOT_LOGGED.EX.003
+           <font color=000 size=16>v1.NOT_LOGGED.EX.004
        end header
 
        |Користувач|
@@ -177,18 +179,30 @@ O .d.> GET_POLL_RESULTS : extends
            логін та пароль;
 
        |Система|
-           :ідентифікує користувача;
+           :Ідентифікує користувача;
 
            note right #ffaaaa
            <b>Можлива</b>
-           <b>v1.NOT_LOGGED.EX.002</b>
+           <b>v1.NOT_LOGGED.EX.003</b>
            end note
 
-           : авторизує користувача, та
-           надає користувачу авторизацію у системі;
+           :Аутентифікує користувача;
+
+           note right #ffaaaa
+           <b>Можлива</b>
+           <b>v1.NOT_LOGGED.EX.004</b>
+           end note
+
+           :Авторизує користувача,
+           надаючи інтерфейс взаємодії
+           з сервісами системи;
 
          |Користувач|
-             stop;
+
+            :Отримує доступ до сервісів
+            інформаційної системи;
+
+            stop;
 
   @enduml
 
@@ -211,7 +225,7 @@ O .d.> GET_POLL_RESULTS : extends
            <font color=000 size=16>Користувач має доступ до запитаного опитування
            <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Дані для проходження опитування
            <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-           <font color=000 size=16>v1.NOT_LOGGED.EX.004
+           <font color=000 size=16>v1.NOT_LOGGED.EX.005
            <font color=000 size=16>v1.COMMON.EX.001
            <font color=000 size=16>v1.COMMON.EX.002
        end header
@@ -225,7 +239,7 @@ O .d.> GET_POLL_RESULTS : extends
 
            note right #ffaaaa
            <b>Можлива</b>
-           <b>v1.NOT_LOGGED.EX.004</b>
+           <b>v1.NOT_LOGGED.EX.005</b>
            end note
 
            :знаходить назву, опис, питання та ролі, для 
@@ -270,7 +284,7 @@ O .d.> GET_POLL_RESULTS : extends
              <font color=000 size=16>Користувач коректно пройшов опитування.
              <font color=000 size=16><b>РЕЗУЛЬТАТ:</b>Повідомлення про зарахування результатів опитування користувача
              <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-             <font color=000 size=16>v1.NOT_LOGGED.EX.004
+             <font color=000 size=16>v1.NOT_LOGGED.EX.005
              <font color=000 size=16>v1.COMMON.EX.001
              <font color=000 size=16>v1.COMMON.EX.002
              <font color=000 size=16>v1.COMMON.EX.003
@@ -285,7 +299,7 @@ O .d.> GET_POLL_RESULTS : extends
 
              note right #ffaaaa
              <b>Можлива</b>
-             <b>v1.NOT_LOGGED.EX.004</b>
+             <b>v1.NOT_LOGGED.EX.005</b>
              end note
 
              :перевіряє правильність наданих
@@ -322,7 +336,7 @@ O .d.> GET_POLL_RESULTS : extends
            <font color=000 size=16>У системі є дані про зворотній зв'язок стосовно опитування
            <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Зворотній зв'язок стосовно надісланого опитування
            <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-           <font color=000 size=16>->v1.NOT_LOGGED.EX.004
+           <font color=000 size=16>->v1.NOT_LOGGED.EX.005
            <font color=000 size=16>->v1.COMMON.EX.001
            <font color=000 size=16>->v1.COMMON.EX.002
            <font color=000 size=16>->v1.COMMON.EX.003
@@ -339,7 +353,7 @@ O .d.> GET_POLL_RESULTS : extends
 
            note right #ffaaaa
            <b>Можлива</b>
-           <b>v1.NOT_LOGGED.EX.004</b>
+           <b>v1.NOT_LOGGED.EX.005</b>
            end note
 
            : Перевіряє, чи існує задане опитування;
@@ -392,7 +406,7 @@ O .d.> GET_POLL_RESULTS : extends
            <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>Користувач авторизований у системі.
            <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про створення організації
            <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-           <font color=000 size=16>->v1.NOT_LOGGED.EX.004
+           <font color=000 size=16>->v1.NOT_LOGGED.EX.005
            <font color=000 size=16>->v1.COMMON.EX.003
        end header
 
@@ -408,7 +422,7 @@ O .d.> GET_POLL_RESULTS : extends
 
            note right #ffaaaa
            <b>Можлива</b>
-           <b>v1.NOT_LOGGED.EX.004</b>
+           <b>v1.NOT_LOGGED.EX.005</b>
            end note
 
            : Надає користувачу форму
@@ -455,7 +469,7 @@ O .d.> GET_POLL_RESULTS : extends
            <font color=000 size=16>Користувач має доступ до запитаної організації.
            <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Дані про організацію
            <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-           <font color=000 size=16>v1.NOT_LOGGED.EX.004
+           <font color=000 size=16>v1.NOT_LOGGED.EX.005
            <font color=000 size=16>v1.COMMON.EX.001
            <font color=000 size=16>v1.COMMON.EX.002
        end header
@@ -469,7 +483,7 @@ O .d.> GET_POLL_RESULTS : extends
            : Ідентифікує користувача;
            note right #ffaaaa
            <b>Можлива</b>
-           <b>v1.NOT_LOGGED.EX.004</b>
+           <b>v1.NOT_LOGGED.EX.005</b>
            end note
 
            : Перевіряє, чи
@@ -517,7 +531,7 @@ O .d.> GET_POLL_RESULTS : extends
          <font color=000 size=16>Користувач має доступ до запитаної організації.
          <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про зміну даних організації.
          <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-         <font color=000 size=16>v1.NOT_LOGGED.EX.004
+         <font color=000 size=16>v1.NOT_LOGGED.EX.005
          <font color=000 size=16>v1.COMMON.EX.001
          <font color=000 size=16>v1.COMMON.EX.002
          <font color=000 size=16>v1.COMMON.EX.003
@@ -534,7 +548,7 @@ O .d.> GET_POLL_RESULTS : extends
 
           note right #ffaaaa
           <b>Можлива</b>
-          <b>v1.NOT_LOGGED.EX.004</b>
+          <b>v1.NOT_LOGGED.EX.005</b>
           end note
 
           : Перевіряє, чи
@@ -606,7 +620,7 @@ O .d.> GET_POLL_RESULTS : extends
         <font color=000 size=16>2.Користувач має доступ до запитаної організації.
         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про створення опитування.
         <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-        <font color=000 size=16>v1.NOT_LOGGED.EX.004
+        <font color=000 size=16>v1.NOT_LOGGED.EX.005
         <font color=000 size=16>v1.COMMON.EX.001
         <font color=000 size=16>v1.COMMON.EX.002
         <font color=000 size=16>v1.COMMON.EX.003
@@ -640,7 +654,7 @@ O .d.> GET_POLL_RESULTS : extends
           користувача;
           note right #ffaaaa
           <b>Можлива</b>
-          <b>v1.NOT_LOGGED.EX.004</b>
+          <b>v1.NOT_LOGGED.EX.005</b>
           end note
 
           :Знаходить дані
@@ -695,7 +709,7 @@ O .d.> GET_POLL_RESULTS : extends
         <font color=000 size=16>2.Користувач має доступ до запитаної організації.
         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про змінення даних опитування.
         <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-        <font color=000 size=16>v1.NOT_LOGGED.EX.004
+        <font color=000 size=16>v1.NOT_LOGGED.EX.005
         <font color=000 size=16>v1.COMMON.EX.001
         <font color=000 size=16>v1.COMMON.EX.002
         <font color=000 size=16>v1.COMMON.EX.003
@@ -733,7 +747,7 @@ O .d.> GET_POLL_RESULTS : extends
           користувача;
           note right #ffaaaa
           <b>Можлива</b>
-          <b>v1.NOT_LOGGED.EX.004</b>
+          <b>v1.NOT_LOGGED.EX.005</b>
           end note
     
           :Знаходить дані
@@ -790,7 +804,7 @@ O .d.> GET_POLL_RESULTS : extends
         <font color=000 size=16>2.Користувач має доступ до запитаної організації.
         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Результати опитування
         <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-        <font color=000 size=16>v1.NOT_LOGGED.EX.004
+        <font color=000 size=16>v1.NOT_LOGGED.EX.005
         <font color=000 size=16>v1.COMMON.EX.001
         <font color=000 size=16>v1.COMMON.EX.002
         <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
@@ -822,7 +836,7 @@ O .d.> GET_POLL_RESULTS : extends
           користувача;
           note right #ffaaaa
           <b>Можлива</b>
-          <b>v1.NOT_LOGGED.EX.004</b>
+          <b>v1.NOT_LOGGED.EX.005</b>
           end note
 
           :Перевіряє
@@ -886,7 +900,7 @@ left header
          неіснуючих даних;
  
      |Система|
-         : Надає користувачу повідомлення 
+         :Надає користувачу повідомлення 
          про відсутність запитаних даних;
 
      |Користувач|
@@ -969,8 +983,6 @@ left header
      |Користувач|
          :Отримує повідомлення
          про відхилення хибних даних;
-   
-          :Завершує взаємодію;
 
           stop;
 
@@ -994,26 +1006,28 @@ left header
          <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
          <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
          <font color=000 size=16>Користувач не зареєстрований у системі.
-         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система відхилила реєстрацію
+         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система відхилює реєстрацію
      end header
       |Користувач|
           start
-          :Вносить невірні дані при реєстрації;
+          :Вводить неправильні
+          реєстраційні дані;
+
      |Система|
          :Надає користувачу повідомлення
          про відхилення реєстрації;
 
      |Користувач|
-         :Отримує повідомлення про
-         відхилення реєстрації;
-         :Завершує взаємодію;
+         :Підтверджує отримання
+         повідомлення;
+
          stop;
 
 @enduml
 
 </center>
 
-- ID:	v1.NOT_LOGGED.EX.002
+- ID: v1.NOT_LOGGED.EX.002
 
 <center style="
     border-radius:4px;
@@ -1025,35 +1039,34 @@ left header
 
     left header
          <font color=000 size=16><b>ID:</b> v1.NOT_LOGGED.EX.002
-         <font color=000 size=16><b>НАЗВА:</b> Відхилити спробу авторизації через помилку ідентифікації
+         <font color=000 size=16><b>НАЗВА:</b> Відхилити запит на реєстрацію
          <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
          <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
-         <font color=000 size=16>Користувач не авторизований у системі.
-         <font color=000 size=16>Система не змогла ідентифікувати користувача.
-         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про помилку спроби авторизації
+         <font color=000 size=16>Користувач зареєстрований у системі
+         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система відхилила реєстрацію
      end header
-
-     |Користувач|
-         start
-         :Виконує дії, потрібні
-         для авторизації;
+      |Користувач|
+          start
+          :Вводить реєстраційні дані;
 
      |Система|
-         :Надає користувачу повідомлення про відхилення
-         авторизації через помилку ідентифікації;
+         :Визначає, що користувач
+         вже зареєстрований;
+
+         :Надає користувачу повідомлення
+         про відхилення реєстрації;
 
      |Користувач|
-         :Отримує повідомлення про відхилення
-         авторизації через помилку ідентифікації;
+         :Підтверджує отримання
+         повідомлення;
 
-         :Завершує взаємодію;
          stop;
 
 @enduml
 
 </center>
 
-- ID: v1.NOT_LOGGED.EX.003
+- ID:	v1.NOT_LOGGED.EX.003
 
 <center style="
     border-radius:4px;
@@ -1065,31 +1078,29 @@ left header
 
     left header
          <font color=000 size=16><b>ID:</b> v1.NOT_LOGGED.EX.003
-         <font color=000 size=16><b>НАЗВА:</b> Відхилити спробу авторизації через помилку аутентифікації
+         <font color=000 size=16><b>НАЗВА:</b> Помилка ідентифікації
          <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
          <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
          <font color=000 size=16>Користувач не авторизований у системі
-         <font color=000 size=16>Система не змогла аутентифікувати користувача
-         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про спроби авторизації
+         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система відхилила авторизацію
      end header
-             
+
      |Користувач|
          start
-         :Виконує дію, що потребує авторизації,
-         будучи неаутентифікованим;
+         :Виконує дії, потрібні
+         для авторизації;
 
      |Система|
-         :Надає користувачу повідомлення про відхилення
-         авторизації через помилку аутентифікації;
-  
-         :Знижує ступінь довіри
-          до користувача;
+         :Визначає, що користувача
+         неможливо ідентифікувати;
+
+         :Повідомляє користувача про
+         відхилення авторизації;
 
      |Користувач|
-         :Отримує повідомлення про відхилення
-         авторизації через помилку аутентифікації;
+         :Підтверджує отримання
+         повідомлення;
 
-         :Завершує взаємодію;
          stop;
 
 @enduml
@@ -1097,6 +1108,50 @@ left header
 </center>
 
 - ID: v1.NOT_LOGGED.EX.004
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;" >
+
+@startuml
+
+    left header
+         <font color=000 size=16><b>ID:</b> v1.NOT_LOGGED.EX.004
+         <font color=000 size=16><b>НАЗВА:</b> Відхилити спробу авторизації через помилку аутентифікації
+         <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
+         <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
+         <font color=000 size=16>Користувач не авторизований у системі
+         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b>
+         <font color=000 size=16>Система відхилила авторизацію та
+         <font color=000 size=16>знизила ступінь довіри до користувача
+     end header
+             
+     |Користувач|
+         start
+         :Намагається авторизуватися з
+         хибними аутентифікаційними даними;
+
+     |Система|
+         :Знижує ступінь довіри
+          до користувача;
+
+         :Надає користувачу повідомлення
+         про відхилення авторизації через
+         помилку аутентифікації;
+
+     |Користувач|
+         :Підтверджує отримання
+         повідомлення;
+
+         stop;
+
+@enduml
+
+</center>
+
+- ID: v1.NOT_LOGGED.EX.005
 
     <center style="
         border-radius:4px;
@@ -1108,12 +1163,12 @@ left header
 
       left header
 
-        <font color=000 size=16><b>ID:</b> v1.NOT_LOGGED.EX.004
+        <font color=000 size=16><b>ID:</b> v1.NOT_LOGGED.EX.005
         <font color=000 size=16><b>НАЗВА:</b> Відхілити доступ для неавторизованого користувача
         <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система 
         <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
         <font color=000 size=16>Користувач не авторизований у системі
-        <font color=000 size=16><b>РЕЗУЛЬТАТ:</b>Система відхилила запит на доступ
+        <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Система відхилила запит на доступ
 
       end header
 
