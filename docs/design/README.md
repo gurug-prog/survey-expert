@@ -1,8 +1,8 @@
-# Проєктування бази даних
+<!-- # Проєктування бази даних
 
-В рамках проекту розробляється:
+В рамках проекту розробляється: -->
 
-## ER-модель
+<!-- ## ER-модель
 
 @startuml
 
@@ -119,10 +119,12 @@ QuestionFeedback "0,*"--*"1,1" PollFeedback
 
 ## Реляційна схема
 
-![eer](https://user-images.githubusercontent.com/31734600/145624893-81f1abe5-f15b-46d0-9325-3e609cf31dc1.png)
+![eer](https://user-images.githubusercontent.com/31734600/145624893-81f1abe5-f15b-46d0-9325-3e609cf31dc1.png) -->
 
 # Big Picture???
 
 # Deployment???
 
-# Проєктування бази даних
+# Components???
+
+<!-- # Проєктування бази даних -->
