@@ -1,8 +1,56 @@
-<!-- # Проєктування бази даних
+<!--
+## Реляційна схема
 
-В рамках проекту розробляється: -->
+![eer](https://user-images.githubusercontent.com/31734600/145624893-81f1abe5-f15b-46d0-9325-3e609cf31dc1.png)
+-->
 
-<!-- ## ER-модель
+# Big Picture
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+![Big Picture](./diagrams/big-picture.svg)
+
+</center>
+
+# Deployment
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+![Deployment](./diagrams/deployment.svg)
+
+</center>
+
+# Components
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+
+![Components](./diagrams/components.svg)
+
+</center>
+
+# ER Model
+
+<center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
 
 @startuml
 
@@ -117,14 +165,5 @@ QuestionFeedback "0,*"--*"1,1" PollFeedback
 
 @enduml
 
-## Реляційна схема
+</center>
 
-![eer](https://user-images.githubusercontent.com/31734600/145624893-81f1abe5-f15b-46d0-9325-3e609cf31dc1.png) -->
-
-# Big Picture???
-
-# Deployment???
-
-# Components???
-
-<!-- # Проєктування бази даних -->
