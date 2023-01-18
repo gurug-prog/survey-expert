@@ -1,4 +1,0 @@
-# Висновки
-
-TODO: conclusions
-

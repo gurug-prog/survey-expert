@@ -66,19 +66,15 @@ module.exports = {
       },
 
       {
-        title: "Технологічний стек???",
+        title: "Технологічний стек",
         path: "/tech-stack/",
       },
 
       {
-        title: "Команда та фреймворк роботи???",
+        title: "Команда та фреймворк роботи",
         path: "/team/",
       },
 
-      {
-        title: "Висновки",
-        path: "/conclusions/",
-      },
     ],
     sidebarDepth: 2,
     displayAllHeaders: true, // Default: false

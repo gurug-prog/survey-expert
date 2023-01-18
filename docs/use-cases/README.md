@@ -100,6 +100,8 @@ O .d.> GET_POLL_RESULTS : extends
 
 <br><br>
 
+# Сценарії взаємодії
+
 ## Сценарії взаємодії для користувача
 
 - ID: v1.NOT_LOGGED.001

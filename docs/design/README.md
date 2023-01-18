@@ -1,10 +1,8 @@
-<!--
-## Реляційна схема
+# Проектування інформаційного забезпечення
 
-![eer](https://user-images.githubusercontent.com/31734600/145624893-81f1abe5-f15b-46d0-9325-3e609cf31dc1.png)
--->
+В цьому документі наведені діаграми, у яких відображено компоненти та існуючі технічні рішення, які будуть використані для побудови майбутньої системи, а також архітектуру розроблюваного програмного забезпечення.
 
-# Big Picture
+## Big Picture
 
 <center style="
     border-radius:4px;
@@ -17,7 +15,7 @@
 
 </center>
 
-# Deployment
+## Deployment
 
 <center style="
     border-radius:4px;
@@ -30,7 +28,7 @@
 
 </center>
 
-# Components
+## Components
 
 <center style="
     border-radius:4px;
@@ -43,7 +41,7 @@
 
 </center>
 
-# ER Model
+## ER Model
 
 <center style="
     border-radius:4px;
@@ -54,7 +52,7 @@
 
 @startuml
 
-entity User <<ENTITY>>{
+entity User {
     Name: TEXT
     Email: TEXT
     Password: TEXT
@@ -62,7 +60,7 @@ entity User <<ENTITY>>{
     Authorization_Token: TEXT
 }
 
-entity Organization <<ENTITY>>{
+entity Organization {
     Name: TEXT
     Creation_date: DATE
     Creator: TEXT
@@ -71,22 +69,22 @@ entity Organization <<ENTITY>>{
     Address: TEXT
 }
 
-entity PollType <<ENTITY>>{
+entity PollType {
     Name: TEXT
     Description: TEXT
 }
 
-entity BlackListedUser <<ENTITY>>{
+entity BlackListedUser {
     BL_User: TEXT
     BL_Poll: TEXT
 }
 
-entity WhiteListedUser <<ENTITY>>{
+entity WhiteListedUser {
     WL_User: TEXT
     WL_Poll: TEXT
 }
 
-entity Poll <<ENTITY>>{
+entity Poll {
     Title: TEXT
     Description: TEXT
     CreationDate: DATE
@@ -98,39 +96,39 @@ entity Poll <<ENTITY>>{
     Type: TEXT
 }
 
-entity QuestionType <<ENTITY>>{
+entity QuestionType {
     Name: TEXT
     Description: TEXT
 }
 
-entity AnswerOption <<ENTITY>>{
+entity AnswerOption {
     Name: TEXT
     Index: NUMBER
 }
-entity Question <<ENTITY>>{
+entity Question {
     Title: TEXT
     Description: TEXT
     Type: TEXT
 }
 
-entity Answer <<ENTITY>>{
+entity Answer {
     Content: TEXT
     Question: TEXT
     QuestionType: TEXT
 }
 
-entity PollResult <<ENTITY>>{
+entity PollResult {
     Date: DATE
     PR_Comment: TEXT
     Respondent: TEXT
 }
 
-entity QuestionFeedback <<ENTITY>>{
+entity QuestionFeedback {
     QF_Comment: TEXT
     QF_Qeustion: TEXT
 }
 
-entity PollFeedback <<ENTITY>>{
+entity PollFeedback {
     GeneralComment: TEXT
     Rating: NUMBER
     MaxRating: NUMBER
@@ -138,30 +136,30 @@ entity PollFeedback <<ENTITY>>{
     PF_Poll: TEXT
 }
 
-Poll "0,*"--*"1,1" User
-Organization "0,*"--*"1,1" User
-PollFeedback "0,*"--*"1,1" User
+Poll "0,*"-->"1,1" User
+Organization "0,*"-->"1,1" User
+PollFeedback "0,*"-->"1,1" User
 
-Poll "0,*"--*"1,1" Organization
+Poll "0,*"-->"1,1" Organization
 
-BlackListedUser "1,1"*--"0,*" User
-BlackListedUser "1,1"--*"0,*" Organization
+BlackListedUser "1,1"<--"0,*" User
+BlackListedUser "1,1"<--"0,*" Organization
 
-WhiteListedUser "1,1"*--"0,*" User
-WhiteListedUser "1,1"--*"0,*" Organization
+WhiteListedUser "1,1"<--"0,*" User
+WhiteListedUser "1,1"<--"0,*" Organization
 
 
-Question "0,*"--*"1,1" Poll
+Question "0,*"-->"1,1" Poll
 
-Answer "0,*"--*"1,1" Question
-Answer "0,*"--*"1,1" PollResult
+Answer "0,*"-->"1,1" Question
+Answer "0,*"-->"1,1" PollResult
 
-AnswerOption "0,*"--*"1,1" Question
-PollType "0,*"-d-*"1,1" Poll
-QuestionType "0,*"--*"1,1" Question
-QuestionType "0,*"--*"1,1" Answer
+AnswerOption "0,*"-->"1,1" Question
+PollType "0,*"-->"1,1" Poll
+QuestionType "0,*"-->"1,1" Question
+QuestionType "0,*"-->"1,1" Answer
 
-QuestionFeedback "0,*"--*"1,1" PollFeedback
+QuestionFeedback "0,*"-->"1,1" PollFeedback
 
 @enduml
 
